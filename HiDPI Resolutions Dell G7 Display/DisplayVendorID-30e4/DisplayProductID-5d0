@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductName</key>
+	<string>Dell G7 Display</string>
+	<key>DisplayProductID</key>
+	<integer>1488</integer>
+	<key>DisplayVendorID</key>
+	<integer>12516</integer>
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAAPAAAACHAAAAAB</data>
+		<data>AAANIAAAB2AAAAAB</data>
+		<data>AAALQAAABlQAAAAB</data>
+		<data>AAAKAAAABaAAAAAB</data>
+		<string>&lt;00000f00 00000870 00000009 00a00000&gt;</string>
+		<data>AAANIAAAB2AAAAAJAKAAAA==</data>
+		<data>AAALQAAABlQAAAAJAKAAAA==</data>
+		<data>AAAKAAAABaAAAAAJAKAAAA==</data>
+	</array>
+	<key>target-default-ppmm</key>
+	<real>10.0699301</real>
+</dict>
+</plist>
