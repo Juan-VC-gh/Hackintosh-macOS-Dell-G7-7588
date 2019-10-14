@@ -6,6 +6,8 @@
 	<dict>
 		<key>AutoMerge</key>
 		<true/>
+		<key>FixHeaders</key>
+		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>Fixes</key>
@@ -148,8 +150,6 @@
 				<string>xh_rvp10</string>
 			</dict>
 		</array>
-		<key>FixHeaders</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>Generate</key>
@@ -168,7 +168,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-igfxnohdmi</string>
+		<string></string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
@@ -197,18 +197,32 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,GfxYTile</key>
-				<data>AQAAAA==</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>AACbPg==</data>
 				<key>AAPL,slot-name</key>
-				<string>Internal</string>
+				<string>Internal@0,2,0</string>
 				<key>device-id</key>
 				<data>mz4AAA==</data>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con2-index</key>
+				<data>/////w==</data>
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>
+				<key>framebuffer-flags</key>
+				<data>CwIAAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-portcount</key>
+				<data>AgAAAA==</data>
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
 				<key>model</key>
-				<string>Intel UHD Graphics 630</string>
+				<string>Intel UHD Graphics 630 (Mobile)</string>
 			</dict>
 		</dict>
 		<key>USB</key>
@@ -281,13 +295,23 @@
 		<key>AppleRTC</key>
 		<false/>
 		<key>DellSMBIOSPatch</key>
-		<true/>
+		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>MSR 0xE2 _xcpm_idle instant reboot(c) Pike R. Alpha</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ILniAAAADzA=</data>
+				<key>Replace</key>
+				<data>ILniAAAAkJA=</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable panic kext logging on 10.14 release kernel (credit vit9696)</string>
@@ -318,38 +342,6 @@
 				<string>com.apple.driver.AppleAHCIPort</string>
 				<key>Replace</key>
 				<data>SW50ZXJuYWw=</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>MikeyDriver Patch Assertions</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>U291bmQgYXNzZXJ0aW9uIA==</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.11.x,10.12.x,10.13.x,10.14.x,10.15.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleMikeyDriver</string>
-				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAAAAAAAAA==</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Prevent AGDP from loading</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>ugUAAAA=</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.11.x,10.12.x,10.13.x,10.14.x,10.15.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>ugAAAAA=</data>
 			</dict>
 			<dict>
 				<key>Comment</key>

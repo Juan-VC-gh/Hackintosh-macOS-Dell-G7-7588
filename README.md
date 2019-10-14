@@ -8,7 +8,7 @@ A few things to note:
 
 * The procedure to install is almost identical as with Mojave.
 * Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves same result in battery as letting macOS manage the CPU itself so I am not using it anymore (will probably upload some fresh new profiles if you still miss one).
-* Updated every possible driver I was using and moved VerbStub to /L/E/ which I think yields better results (I will move it back if works worse). Refer to my Mojave Guide to find how to install it.
+* Updated every possible driver.
 * The EFI folder works for both USB installation and booting the operating system. Using Clover v2.5k_r5093 with AptioMemoryFix UEFI driver instead of any OsxAptioFix.
 * Created proper files to enable native HiDPI on this laptop. Is it gonna make your laptop logo look bigger when booting which is totally fine for me to enable these tasty resolutions if you are good with that. (I personally love using the resolution which makes UI look like 1440 x 810 but it is actually rendering double quantity of pixels 2880 x 1620)
 
@@ -28,7 +28,7 @@ You are safe to reboot now, when logged go to terminal and type (because even wi
 	sudo mount -uw /
 	killall Finder
 	
-Fine we now need to place the files at:
+Fine, we now need to place the files at:
 
 	/System/Library/Displays/Contents/Resources/Overrides/
 
