@@ -38,6 +38,13 @@ Finally, copy the included folder and Icon.plist file included in the repo and r
 
 * Note that every time you reboot the operating system will change the system volume to read-only again so make sure to run the proper commands if you want to modify again it later. 
 
+* Also remember it is healthy to repair permissions and rebuild cache every time that you Hackintosh is updated.
+
+	```
+	sudo chmod -Rf 755 /L*/E*
+	sudo chown -Rf 0:0 /L*/E*
+	sudo kextcache -i /
+
 Enjoy you new ~~Mac~~ Hackintosh!
 
 ## Credits

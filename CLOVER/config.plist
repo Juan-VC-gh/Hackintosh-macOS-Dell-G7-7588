@@ -6,8 +6,6 @@
 	<dict>
 		<key>AutoMerge</key>
 		<true/>
-		<key>FixHeaders</key>
-		<true/>
 		<key>DSDT</key>
 		<dict>
 			<key>Fixes</key>
@@ -27,9 +25,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>WEhDSQ==</data>
+					<data>
+					WEhDSQ==
+					</data>
 					<key>Replace</key>
-					<data>WEhDXw==</data>
+					<data>
+					WEhDXw==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -37,9 +39,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>SEVDSQ==</data>
+					<data>
+					SEVDSQ==
+					</data>
 					<key>Replace</key>
-					<data>SU1FSQ==</data>
+					<data>
+					SU1FSQ==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -47,9 +53,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>R0ZYMA==</data>
+					<data>
+					R0ZYMA==
+					</data>
 					<key>Replace</key>
-					<data>SUdQVQ==</data>
+					<data>
+					SUdQVQ==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -57,11 +67,17 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>X1NUQQ==</data>
+					<data>
+					X1NUQQ==
+					</data>
 					<key>Replace</key>
-					<data>WFNUQQ==</data>
+					<data>
+					WFNUQQ==
+					</data>
 					<key>TgtBridge</key>
-					<data>R1BJMA==</data>
+					<data>
+					R1BJMA==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -69,11 +85,17 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>X0NSUw==</data>
+					<data>
+					X0NSUw==
+					</data>
 					<key>Replace</key>
-					<data>WENSUw==</data>
+					<data>
+					WENSUw==
+					</data>
 					<key>TgtBridge</key>
-					<data>VFBEMQ==</data>
+					<data>
+					VFBEMQ==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -81,9 +103,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>FCBCUlQ2Ag==</data>
+					<data>
+					FCBCUlQ2Ag==
+					</data>
 					<key>Replace</key>
-					<data>FCBCUlRYAg==</data>
+					<data>
+					FCBCUlRYAg==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -91,9 +117,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>RUNEVg==</data>
+					<data>
+					RUNEVg==
+					</data>
 					<key>Replace</key>
-					<data>RUNfXw==</data>
+					<data>
+					RUNfXw==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -101,9 +131,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>SERBUw==</data>
+					<data>
+					SERBUw==
+					</data>
 					<key>Replace</key>
-					<data>SERFRg==</data>
+					<data>
+					SERFRg==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -111,9 +145,13 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>U0FUMA==</data>
+					<data>
+					U0FUMA==
+					</data>
 					<key>Replace</key>
-					<data>U0FUQQ==</data>
+					<data>
+					U0FUQQ==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -121,19 +159,27 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>T1NJRA==</data>
+					<data>
+					T1NJRA==
+					</data>
 					<key>Replace</key>
-					<data>WFNJRA==</data>
+					<data>
+					WFNJRA==
+					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change _OSI to XOSI (Override for host defined _OSI to handle &quot;Darwin&quot;)</string>
+					<string>Change _OSI to XOSI (Override for host defined _OSI to handle "Darwin")</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>X09TSQ==</data>
+					<data>
+					X09TSQ==
+					</data>
 					<key>Replace</key>
-					<data>WE9TSQ==</data>
+					<data>
+					WE9TSQ==
+					</data>
 				</dict>
 			</array>
 		</dict>
@@ -150,6 +196,8 @@
 				<string>xh_rvp10</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>Generate</key>
@@ -176,10 +224,13 @@
 		<key>Timeout</key>
 		<integer>5</integer>
 	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>FrequencyMHz</key>
+		<integer>2200</integer>
+	</dict>
 	<key>Comment</key>
 	<string>This config.plist is intended to be used with hotpatches (SSDTs) on Dell G7 7588 and macOS Catalina</string>
-	<key>Github</key>
-	<string>https://github.com/Juan-VC/Hackintosh-macOS-Catalina-on-Dell-G7-7588/</string>
 	<key>Devices</key>
 	<dict>
 		<key>Properties</key>
@@ -187,40 +238,66 @@
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Internal</string>
+				<string>Internal@0,31,3</string>
 				<key>device_type</key>
 				<string>Audio device</string>
 				<key>layout-id</key>
-				<data>DQAAAA==</data>
+				<data>
+				DQAAAA==
+				</data>
 				<key>model</key>
 				<string>Cannon Lake PCH cAVS</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>AACbPg==</data>
+				<data>
+				AACbPg==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,2,0</string>
 				<key>device-id</key>
-				<data>mz4AAA==</data>
+				<data>
+				mz4AAA==
+				</data>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
+				<key>disable-external-gpu</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con2-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con2-index</key>
-				<data>/////w==</data>
+				<data>
+				/////w==
+				</data>
 				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
+				<data>
+				AACQAA==
+				</data>
 				<key>framebuffer-flags</key>
-				<data>CwIAAA==</data>
+				<data>
+				CwIAAA==
+				</data>
 				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-portcount</key>
-				<data>AgAAAA==</data>
+				<data>
+				AgAAAA==
+				</data>
 				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
+				<data>
+				AAAwAQ==
+				</data>
 				<key>framebuffer-unifiedmem</key>
-				<data>AAAAgA==</data>
+				<data>
+				AAAAgA==
+				</data>
 				<key>model</key>
 				<string>Intel UHD Graphics 630 (Mobile)</string>
 			</dict>
@@ -288,14 +365,20 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>tonymacx86</string>
+		<string>Neon256</string>
 	</dict>
+	<key>Github</key>
+	<string>https://github.com/Juan-VC/Hackintosh-macOS-Catalina-on-Dell-G7-7588/</string>
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
 		<false/>
 		<key>DellSMBIOSPatch</key>
-		<false/>
+		<true/>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
+		</array>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
@@ -308,9 +391,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>ILniAAAADzA=</data>
+				<data>
+				ILniAAAADzA=
+				</data>
 				<key>Replace</key>
-				<data>ILniAAAAkJA=</data>
+				<data>
+				ILniAAAAkJA=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -318,11 +405,15 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>igKEwHRC</data>
+				<data>
+				igKEwHRC
+				</data>
 				<key>MatchOS</key>
 				<string>10.14.x</string>
 				<key>Replace</key>
-				<data>igKEwOtC</data>
+				<data>
+				igKEwOtC
+				</data>
 			</dict>
 		</array>
 		<key>KextsToPatch</key>
@@ -333,7 +424,9 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>RXh0ZXJuYWw=</data>
+				<data>
+				RXh0ZXJuYWw=
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>MatchOS</key>
@@ -341,7 +434,9 @@
 				<key>Name</key>
 				<string>com.apple.driver.AppleAHCIPort</string>
 				<key>Replace</key>
-				<data>SW50ZXJuYWw=</data>
+				<data>
+				SW50ZXJuYWw=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -349,7 +444,9 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>U1U5TGFYUT0=</data>
+				<data>
+				U1U5TGFYUT0=
+				</data>
 				<key>InfoPlistPatch</key>
 				<true/>
 				<key>MatchOS</key>
@@ -357,7 +454,9 @@
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2C</string>
 				<key>Replace</key>
-				<data>U1U5TGFYTT0=</data>
+				<data>
+				U1U5TGFYTT0=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -365,7 +464,9 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>U1U5TGFYUT0=</data>
+				<data>
+				U1U5TGFYUT0=
+				</data>
 				<key>InfoPlistPatch</key>
 				<true/>
 				<key>MatchOS</key>
@@ -373,15 +474,19 @@
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelLpssI2CController</string>
 				<key>Replace</key>
-				<data>U1U5TGFYTT0=</data>
+				<data>
+				U1U5TGFYTT0=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>AppleHDA Patch Assertions</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
-				<data>U291bmQgYXNzZXJ0aW9uIA==</data>
+				<data>
+				U291bmQgYXNzZXJ0aW9uIA==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>MatchOS</key>
@@ -389,7 +494,9 @@
 				<key>Name</key>
 				<string>com.apple.driver.AppleHDA</string>
 				<key>Replace</key>
-				<data>AAAAAAAAAAAAAAAAAAAAAA==</data>
+				<data>
+				AAAAAAAAAAAAAAAAAAAAAA==
+				</data>
 			</dict>
 		</array>
 	</dict>
@@ -399,20 +506,18 @@
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
-		<key>ROM</key>
-		<string>UseMacAddr0</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro15,2</string>
+		<string>MacBookPro15,1</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
 		<string>Detect</string>
 		<key>InjectSystemID</key>
-		<true/>
+		<false/>
 	</dict>
 </dict>
 </plist>
