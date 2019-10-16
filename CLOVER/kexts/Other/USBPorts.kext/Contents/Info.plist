@@ -22,7 +22,7 @@
 	<string>1.0</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>MacBook-XHC</key>
+		<key>MacBookPro15,1-XHC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBMergeNub</string>
@@ -108,7 +108,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBook</string>
+			<string>MacBookPro15,1</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>
