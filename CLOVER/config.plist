@@ -482,7 +482,7 @@
 				<key>Comment</key>
 				<string>AppleHDA Patch Assertions</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				U291bmQgYXNzZXJ0aW9uIA==
@@ -510,14 +510,12 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>ProductName</key>
-		<string>MacBookPro15,1</string>
+		<string>MacBookPro15,2</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
 		<string>Detect</string>
-		<key>InjectSystemID</key>
-		<false/>
 	</dict>
 </dict>
 </plist>

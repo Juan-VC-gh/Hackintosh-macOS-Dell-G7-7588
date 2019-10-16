@@ -9,6 +9,7 @@ A few things to note:
 * The procedure to install is almost identical as with Mojave.
 * Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves same result in battery as letting macOS manage the CPU itself so I am not using it anymore (will probably upload some fresh new profiles if you still miss one).
 * Updated every possible driver.
+* Tested SMBIOS MacBookPro15,1 as they are sold with better processors than MBP15,2 (which only comes with integrated graphics) and determined that MBP15,2 is the way to go as it only has iGPU you can use a TB3 to HDMI adapter to mirror to an external display which is not possible with MBP15,1 which comes with dual gpu (not even by setting pmset gpuswitch to 0).
 * The EFI folder works for both USB installation and booting the operating system. Using Clover v2.5k_r5096 with AptioMemoryFix UEFI driver instead of any OsxAptioFix.
 * Created proper files to enable native HiDPI on this laptop. Is it gonna make your laptop logo look bigger when booting which is totally fine for me to enable these tasty resolutions if you are good with that. (I personally love using the resolution which makes UI look like 1440 x 810 but it is actually rendering double quantity of pixels 2880 x 1620)
 
