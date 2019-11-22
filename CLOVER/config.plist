@@ -12,8 +12,8 @@
 			<dict>
 				<key>DeleteUnused</key>
 				<false/>
-				<key>FixRegions</key>
-				<false/>
+				<key>FixAirport</key>
+				<true/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -22,6 +22,8 @@
 				<true/>
 				<key>FixRTC</key>
 				<true/>
+				<key>FixRegions</key>
+				<false/>
 				<key>FixTMR</key>
 				<true/>
 			</dict>
@@ -176,7 +178,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string></string>
+		<string>brcmfx-country=#a</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
@@ -195,16 +197,27 @@
 	<dict>
 		<key>Properties</key>
 		<dict>
+			<key>PciRoot(0x0)/Pci(0x1d,0x6)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>WLAN</string>
+				<key>compatible</key>
+				<string>pci14e4,4353</string>
+				<key>device_type</key>
+				<string>Airport Extreme</string>
+				<key>model</key>
+				<string>DW1820A (BCM4350) 802.11ac Wireless</string>
+				<key>name</key>
+				<string>Airport</string>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,31,3</string>
 				<key>device_type</key>
 				<string>Audio device</string>
-				<key>hda-gfx</key>
-				<string>onboard-1</string>
 				<key>layout-id</key>
-				<data>CwAAAA==</data>
+				<data>DQAAAA==</data>
 				<key>model</key>
 				<string>Cannon Lake PCH cAVS</string>
 			</dict>
@@ -315,7 +328,7 @@
 		<true/>
 		<key>ForceKextsToLoad</key>
 		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
+			<string>\System\Library\Extensions\IO80211Family.kext</string>
 		</array>
 		<key>KernelLapic</key>
 		<false/>
