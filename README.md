@@ -12,7 +12,7 @@ A few things to note:
 
 * The procedure to install is almost identical as with Mojave.
 * When installing, delete VoodooPS2KeyboardController inside USB/EFI/Clover/kexts/Other and place VoodooPS2 found in the Installation driver folder.
-* Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves same result in battery as letting macOS manage the CPU itself so I am not using it anymore (will probably upload some fresh new profiles if you still miss one).
+* Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves similar result in battery as letting macOS manage the CPU itself.
 * Updated every possible driver.
 * Tested SMBIOS MacBookPro15,1 as they are sold with better processors than MBP15,2 (which only comes with integrated graphics) and determined that MBP15,2 is the way to go as it only has iGPU you can use a TB3 to HDMI adapter to mirror to an external display which is not possible with MBP15,1 which comes with dual gpu (not even by setting pmset gpuswitch to 0).
 * The EFI folder works for both USB installation and booting the operating system. Using Clover with AptioMemoryFix UEFI driver instead of any OsxAptioFix.
