@@ -504,7 +504,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>Neon256</string>
+		<string>clover-theme-minimal</string>
 	</dict>
 	<key>Github</key>
 	<string>https://github.com/Juan-VC/Hackintosh-macOS-Catalina-on-Dell-G7-7588/</string>
