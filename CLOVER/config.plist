@@ -12,6 +12,8 @@
 			<dict>
 				<key>DeleteUnused</key>
 				<false/>
+				<key>FixAirport</key>
+				<true/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
