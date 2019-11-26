@@ -11,18 +11,17 @@ A few things to note:
 ![Imgur](https://i.imgur.com/kof6tzz.png)
 
 * The procedure to install is almost identical as with Mojave.
-* When installing, delete VoodooPS2KeyboardController inside USB/EFI/Clover/kexts/Other and place VoodooPS2 found in the Installation driver folder.
 * Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves similar result in battery as letting macOS manage the CPU itself **REMOVE** CPUFriend and CPUFriendDataProvider kexts if you have the i5 variant of the laptop. You have to options either let macOS manage the CPU or create your own CPUFriendDataProvider.
 * Updated every possible driver.
 * Tested SMBIOS MacBookPro15,1 as they are sold with better processors than MBP15,2 (which only comes with integrated graphics) and determined that MBP15,2 is the way to go as it only has iGPU you can use a TB3 to HDMI adapter to mirror to an external display which is not possible with MBP15,1 which comes with dual gpu (not even by setting pmset gpuswitch to 0).
-* The EFI folder works for both USB installation and booting the operating system. Using Clover with AptioMemoryFix UEFI driver instead of any OsxAptioFix.
+* There is a specific folder for the Clover USB and the post install Clover folder.
 * Created proper files to enable native HiDPI on this laptop. Is it gonna make your laptop logo look bigger when booting which is totally fine for me to enable these tasty resolutions if you are good with that. (I personally love using the resolution which makes UI look like 1440 x 810 but it is actually rendering double quantity of pixels 2880 x 1620)
 
 You can install everything by using my Mojave guide for now; but of the tricky HiDPI files because of macOS Catalina being installed in a separate volume now and automatically enabling SIP.
 
 First you need to make sure you create a macOS USB by using the installer from the AppStore as we need to enter macOS recovery (otherwise it will not allow you to diable SIP while logged; according to terminal, only on recovery) and some software tend to remove it.
 
-Let's start by shutting down the computer and booting again, but this time choose Recovery from Clover's main menu.
+Let's start by shutting down the computer and booting again, but this time, boot into Recovery from Clover's boot screen.
 Wait for it to boot. Then go to the Utilities tab located at the top and launch terminal. 
 
 Now enter the following commands:
