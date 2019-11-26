@@ -40,7 +40,13 @@ Fine, we now need to place the files at:
 
 After navigating to the folder above look for the Icons.plist file and rename it to IconsBackup.plist
 
-Finally, copy the included folder and Icon.plist file included in the repo and reboot! You can now go to Settings -> Displays and choose scale resolution to pick the one that suits you.
+Copy the included folder and Icon.plist file included in the repo and reboot! You can now go to Settings -> Displays and choose scale resolution to pick the one that suits you.
+
+Now make sure you install with your preffered kext installer the ones in kexts to Library.Extensions folder, then reboot (you may not have audio), so repair kextcache with:
+
+	sudo kextcache -i /
+
+Finally reboot again and you will be set up!
 
 * Note that every time you reboot the operating system will change the system volume to read-only again so make sure to run the proper commands if you want to modify again it later. 
 
