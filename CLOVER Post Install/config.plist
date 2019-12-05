@@ -15,7 +15,7 @@
 				<key>FixAirport</key>
 				<false/>
 				<key>FixHPET</key>
-				<false/>
+				<true/>
 				<key>FixIPIC</key>
 				<false/>
 				<key>FixMutex</key>
