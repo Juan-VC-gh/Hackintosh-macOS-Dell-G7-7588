@@ -58,12 +58,9 @@ Finally reboot again and you will be set up!
 	sudo chmod -Rf 755 /L*/E*
 	sudo chown -Rf 0:0 /L*/E*
 	sudo kextcache -i /
-	
-<<<<<<< HEAD
-**Aprreciate the work and want to donate?** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
-=======
-Appreciate the work and want to donate? [PayPal](<https://www.paypal.me/juanvasquezcastro>)
->>>>>>> master
+
+**Appreciate the work and want to donate?** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
+
 
 Enjoy you new ~~Mac~~ Hackintosh!
 
