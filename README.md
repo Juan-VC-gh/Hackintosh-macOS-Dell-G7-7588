@@ -10,7 +10,7 @@ A few things to note:
 
 ![DW1820A pin-masking](https://i.imgur.com/kof6tzz.png)
 
-* The procedure to install is almost identical as with Mojave.
+* The procedure to install is almost identical as with Mojave apart that I am using a different audio solution for ALC256 jack noise on Catalina.
 * Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves similar result in battery as simply injecting plugin-type=1 and letting macOS manage the CPU itself.
 * Updated every possible driver.
 * Tested SMBIOS MacBookPro15,1 as they are sold with better processors than MBP15,2 (which only comes with integrated graphics) and determined that MBP15,2 is the way to go as it only has iGPU you can use a TB3 to HDMI adapter to mirror to an external display which is not possible with MBP15,1 which comes with dual gpu (not even by setting pmset gpuswitch to 0).
@@ -25,6 +25,15 @@ You can install everything by using my Mojave guide for now; but of the tricky H
 First you need to make sure you create a macOS USB by using the installer from the AppStore as we need to enter macOS recovery (otherwise it will not allow you to diable SIP while logged; according to terminal, only on recovery) and some software tend to remove it.
 
 Let's start by shutting down the computer and booting again, but this time, boot into Recovery from Clover's boot screen.
+
+**There is a script for ease installation of both audio solution for jack noise and HiDPI files.**
+
+**Using the script:** 
+Scroll up and click clone or download, then click Download ZIP. Now browse into the master folder and run the Install.command within the Jack_Fix folder and then reboot!
+
+Note that the script expects the Hackintosh-macOS-Catalina-on-Dell-G7-7588-master folder in ~/Downloads/
+
+**Enable native HiDPI resolutions manually:**
 Wait for it to boot. Then go to the Utilities tab located at the top and launch terminal. 
 
 Now enter the following commands:
@@ -71,3 +80,5 @@ Enjoy you new ~~Mac~~ Hackintosh!
 * VoodooI2C team
 * Rehabman
 * vit9696
+* PMheart
+* EliteMacx86

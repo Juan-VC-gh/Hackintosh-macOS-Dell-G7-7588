@@ -1,0 +1,4 @@
+#!/bin/bash
+
+hda-verb 0x19 SET_PIN_WIDGET_CONTROL 0x24
+hda-verb 0x1a SET_PIN_WIDGET_CONTROL 0x24
