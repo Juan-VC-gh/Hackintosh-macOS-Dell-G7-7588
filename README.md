@@ -7,7 +7,7 @@ In the meantime I am uploading **day one** working files to boot Catalina instal
 
 A few things to note:
 
-* Wi-Fi and Bluetooth work flawlessly even 5GHz networks and Continuity. I bought a card listed as a BCM94352Z from AliExpress part number: 08XRYC which carries a bluetooth vendor-id:0x413C and device-id:0x8143, which means is a DW1550 (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. This Broadcom card works quite impressive under Catalina with proper patches (already included).
+* Wi-Fi and Bluetooth work flawlessly even 5GHz networks and Continuity. I bought a card listed as a BCM94352Z from AliExpress part number: 08XRYC which carries a bluetooth vendor-id:0x413C and device-id:0x8143, that means it is a DW1550 (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. This Broadcom card works quite impressive under Catalina with proper patches (already included).
 
 * There is **ONLY** one clover folder that can be used for both installation and post-installation. The need of a USB mouse when installing was a sacrifice that has to be made in order to have a more organized repo and easier to mantain. No kexts needed from in /S/L/E/ nor in /L/E/.
 
