@@ -106,7 +106,7 @@ This will partition the disk as listed above and rename it to "USB".
 
 You can now run the corresponding command from Apple's own instructions - for this example, we'll be using the Catalina command:
 
-	sudo "/Applications/Install macOS Mojave.app/Contents/Resources/createinstallmedia" --volume /Volumes/USB
+	sudo "/Applications/Install macOS Catalina.app/Contents/Resources/createinstallmedia" --volume /Volumes/USB
 	
 _This will take some time, and it doesn't output much for status updates_. It can take upwards of 30-40 minutes, so just be patient.  Grab a cup of coffee, read the news, catch up with friends and family - you'll be here for a bit
 
