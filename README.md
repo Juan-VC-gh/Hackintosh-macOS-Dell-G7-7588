@@ -1,4 +1,6 @@
-<img src="https://iili.io/JCfJ3u.png" width="200" height="48" align="center"/>
+<p align="center">
+	<img src="https://iili.io/JCfJ3u.png" width="200" height="48"/>
+</p>
 
 -----
 	
@@ -66,7 +68,8 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 Everyone appreciates a good looking friendly software, Clover for example has a lot of themes that make the boot screen look fantastic. Sadly, OpenCore development is tied at the moment to improve performance and add new features, main reason on why there are no themes at the moment for OpenCore as it does not support them, yet. To have a nice looking boot while avoiding potencial issues between operating systems (as noted above, OpenCore does not allow to disable ACPI patching for Windows or Linux) this guide uses `rEFInd` as a chain-loader to achieve both.
 
 My current boot screen looks like this:
-<div align="center"><img src="https://iili.io/JCaRgj.png""/>
+![rEFInd_BootScreen](https://iili.io/JCaRgj.png)
+			      
 -----
 
 ## UEFI settings
@@ -185,7 +188,7 @@ To hide the OpenCore picker, open the `config.plist` file inside `OC` with a pro
 
 **Save the files and restart!**
 
-**Appreciate the work and want to donate?** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
+**Guides are time consuming, if you appreciate the work and want to donate ->** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
 
 Enjoy you new ~~Mac~~ Hackintosh!
 
