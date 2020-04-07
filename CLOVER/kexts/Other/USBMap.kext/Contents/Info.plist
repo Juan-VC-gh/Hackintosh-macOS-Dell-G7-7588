@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0 Copyright © 2018 Headsoft. All rights reserved.</string>
+	<string>v1.0</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.Headsoft.USBPorts</string>
+	<string>com.corpnewt.USBMap</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>USBPorts</string>
+	<string>USBMap</string>
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
@@ -30,22 +30,22 @@
 			<string>AppleUSBMergeNub</string>
 			<key>IONameMatch</key>
 			<string>XHC</string>
-			<key>IOProbeScore</key>
-			<integer>5000</integer>
 			<key>IOProviderClass</key>
 			<string>AppleUSBXHCIPCI</string>
 			<key>IOProviderMergeProperties</key>
 			<dict>
+				<key>kUSBMuxEnabled</key>
+				<true/>
 				<key>port-count</key>
 				<data>
-				EwAAAA==
+				CwAAAA==
 				</data>
 				<key>ports</key>
 				<dict>
 					<key>HS01</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
 						<data>
 						AQAAAA==
@@ -54,7 +54,7 @@
 					<key>HS02</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
 						<data>
 						AgAAAA==
@@ -63,7 +63,7 @@
 					<key>HS03</key>
 					<dict>
 						<key>UsbConnector</key>
-						<integer>0</integer>
+						<integer>3</integer>
 						<key>port</key>
 						<data>
 						AwAAAA==
@@ -75,7 +75,7 @@
 						<integer>255</integer>
 						<key>port</key>
 						<data>
-						BQAAAA==
+						BAAAAA==
 						</data>
 					</dict>
 					<key>HS07</key>
@@ -84,7 +84,7 @@
 						<integer>255</integer>
 						<key>port</key>
 						<data>
-						BwAAAA==
+						BgAAAA==
 						</data>
 					</dict>
 					<key>SS01</key>
@@ -93,7 +93,7 @@
 						<integer>3</integer>
 						<key>port</key>
 						<data>
-						EQAAAA==
+						CQAAAA==
 						</data>
 					</dict>
 					<key>SS02</key>
@@ -102,7 +102,7 @@
 						<integer>3</integer>
 						<key>port</key>
 						<data>
-						EgAAAA==
+						CgAAAA==
 						</data>
 					</dict>
 					<key>SS03</key>
@@ -111,7 +111,7 @@
 						<integer>3</integer>
 						<key>port</key>
 						<data>
-						EwAAAA==
+						CwAAAA==
 						</data>
 					</dict>
 				</dict>

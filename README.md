@@ -1,7 +1,8 @@
 **Hackintosh-macOS-Catalina-on-Dell-G7-7588**
 
-**README will be updated later when I get more time.**
+**Clover is becoming an obsolate bootloader when using a hackintosh with newer macOS releases and update. Check the master branch to setup OpenCore.  Clover branch might not get more updates.**
 
+**README will be updated later when I get more time.**
 
 In the meantime I am uploading **day one** working files to boot Catalina installer and the fully functional macOS.
 
