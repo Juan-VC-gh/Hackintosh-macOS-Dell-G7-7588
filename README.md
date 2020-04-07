@@ -1,84 +1,201 @@
-**Hackintosh-macOS-Catalina-on-Dell-G7-7588**
+<div align="center"><img src="https://iili.io/JCfJ3u.png" width="200" height="48"/>
+-----
 
-**Clover is becoming an obsolate bootloader when using a hackintosh with newer macOS releases and update. Check the master branch to setup OpenCore.  Clover branch might not get more updates.**
+## What is OpenCore?
 
-**README will be updated later when I get more time.**
+OpenCore is no more than the most advanced and complex to setup bootloader for a PC. If feeling curious and or adventurous, chech the excellent-written [official OpenCore documentation](https://github.com/acidanthera/OpenCorePkg/raw/master/Docs/Configuration.pdf). There is really no better explanation of the bootlader and it's advantages than the one from _khronokernel_:
 
-In the meantime I am uploading **day one** working files to boot Catalina installer and the fully functional macOS.
+> OpenCore is an open-source unconventional first-in-class piece of software designed to intercept kernel loading to insert a highly advanced rootkit, designed to be an alternative to Clover. OpenCore aims to resolve the constraints and issues imposed by Clover by providing a more versatile and modular system. While OpenCore is primarily designed for Hackintosh systems, it can be used in any scenario where an emulated EFI is needed with many using it on KVMs and real Macs
 
-A few things to note:
+## Advantages of OpenCore over Clover
 
-* Wi-Fi and Bluetooth work flawlessly even 5GHz networks and Continuity. I bought a card listed as a BCM94352Z from AliExpress part number: 08XRYC which carries a bluetooth vendor-id:0x413C and device-id:0x8143, that means it is a DW1550 (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. This Broadcom card works quite impressive under Catalina with proper patches (already included).
+* On average, OpenCore systems boot faster than those using Clover as less unnessary patching is done
+* Better overall stability as patches can be much more persise: macOS 10.15.4 update as an example
+* OpenCore offers better overall security with better support for FileVault, no need to disable System Integrity Protection(SIP) and even secure boot-like functionality support via Vaulting, which consists of a 256 byte RSA-2048 signature from a `vault.plist` that  will be shoved into `OpenCore.efi`
+* OpenCore supports boot hotkey via `boot.efi` - hold `Option` or `ESC` at startup to choose a boot device, `Cmd+R` to enter Recovery or `Cmd+Option+P+R` to reset NVRAM
+* OpenCore is designed with the future in mind and uses modern methods to load 3rd party kernel extensions without breaking System Integrity Protection which Clover uses
+* BootCamp switching and boot device selection are supported by reading NVRAM variables set by Startup Disk just like a real mac
+* Future development for `AptioMemoryFix` (a UEFI drivers that fixes memory allocation for macOS) is directly tied to OpenCore, specifically being absorbed into OpenCore itself with the `FwRuntimeVariable.efi` being used as an extension
+* UEFI and Legacy boot modes are supported
+* More sophisticated patching such as mask patching means macOS updates have very little chance of breaking AMD systems, with AMD OSX patches supporting all versions of High Sierra, Mojave and Catalina. All future AMD OSX development is tied to Opencore, so for 10.15.2+ you'll need OpenCore
 
-* If you want to use a DW1820A, remove config.plist and rename config DW1820A.plist to config.plist
+## Important things to note about OpenCore
 
-* There is **ONLY** one clover folder that can be used for both installation and post-installation. The need of a USB mouse when installing was a sacrifice that has to be made in order to have a more organized repo and easier to mantain. No kexts needed from in /S/L/E/ nor in /L/E/.
+* An ESP partition of at least 200MB is required on the drive macOS will be installed. If you plan to dual/triple boot with the same drive, it's recommended to install macOS first as it creates the ESP of the required size.
+* Kernel extensions are loaded in the order specified in your config file, so you must load an extension's dependencies before you load the extension itself.
+* SMBIOS data, ACPI patches and DSDT/SSDTs are applied to all operating systems. Modifying the SSDTs to properly adjust the supported ACPI interfaces is recommended. Adjustments are made using the Operating System Interface Level method provided by ASL. An adjustment looks somewhat like: `if (_OSI ("Darwin")) {}`
 
-* The procedure to install is almost identical as with Mojave apart that I am using a different audio solution for ALC256 jack noise on Catalina.
-* Found out that using CPUFriend to allow the CPU to go down to 0.8Ghz leaves similar result in battery as simply injecting plugin-type=1 and letting macOS manage the CPU itself.
-* Updated every possible driver.
-* Tested SMBIOS MacBookPro15,1 as they are sold with better processors than MBP15,2 (which only comes with integrated graphics) and determined that MBP15,2 is the way to go as it only has iGPU you can use a TB3 to HDMI adapter to mirror to an external display which is not possible with MBP15,1 which comes with dual gpu (not even by setting pmset gpuswitch to 0).
-* Created proper files to enable native HiDPI on this laptop. Is it gonna make your laptop logo look bigger when booting which is totally fine for me to enable these tasty resolutions if you are good with that. (I personally love using the resolution which makes UI look like 1440 x 810 but it is actually rendering double quantity of pixels 2880 x 1620) You could also use other HiDPI resolutions like 1280x720 or 1680x945.
-* I have hidden the macOS reovery partition to get a clean clover boot, if you need it modify the clover config file. Here's how clean it looks:
+## What is not working?
 
-![clover-theme-minimal-dark](https://i.imgur.com/zGbHRCo.png)
+* SD card slot
+* USB-C storage devices
+* Hibernation? Not tested, will most likely work with acidanthera's `HibernationFixup` kernel extension
+* No HDMI video/audio output. It is controlled by the Nvidia discrete gpu. There are no cuda drivers prior High Sierra (10.13), nor pascal neither turing cards will work.
 
-You can install everything by using my Mojave guide for now (note that the Clover folder can now be used for both pre and post installation); but of the tricky HiDPI files because of macOS Catalina is being installed in a separate volume and automatically enabling SIP.
+## What works?
 
-First you need to make sure you create a macOS USB by using the installer from the AppStore as we need to enter macOS recovery (otherwise it will not allow you to diable SIP while logged; according to terminal, only on recovery) and some software tend to remove it.
+* Keyboard with the special keys like volume or brightness control
+* Brightness control
+* Intel Quartz Extreme and Intel Core Image
+* Hardware encoding and decoding for codecs like h.264 and h.265 (HEVC)
+* iMessage/FaceTime
+* Ethernet
+* Trackpad with native macOS gestures (disable smart zoom under Scroll & Zoom to avoid two finger touch delays, also happens on real Macbooks)
+* Sound (Internal speakers, internal mic, jack)
+* Battery display and manager
+* External Thunderbolt 3 displays
+* USB ports, have been mapped and injected with a codeless kernel extension (like on a real Mac) to avoid the port limit on macOS
+* Sleep
+* Native CPU power management - by looking at `PR00` (how the cpu is defined for the laptop according to the ACPI tables) with `IORegistryExplorer` there is the `plugin-type` property with a value of `0x01` which indicates an active CPU PM, CFG-Lock bypass is required.
+* Wi-Fi (2.4Ghz and 5Ghz networks) and Bluetooth (AirDrop, Handoff, Auto Unlock) work flawlessly by using a card purchased listed in AliExpress as a `BCM94352Z` with part number: `08XRYC` which carries a bluetooth `vendor-id:0x413C` and `device-id:0x8143`, that means it is a `DW1550` (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. Other laptop recommended cards to get everything working are `BCM94360NG`, `DW1820A`, `DW1560` or `DW1830`. The `DW1820` is a special case because one needs to manually disabled the Active State Power Management (by injecting the `pci-aspm-default` = `0x0` to the PCIRootAddr of the card) from the PCI Express 2.0 for the card or else you will never boot macOS, will attach a configuration file with the key to disable aspm so one could replace the corresponding property on the OpenCore configuration file to get this low cost card alternative working as the other cards are beign sold expensive due to the fact there are not much m.2 hackintosh cards.
+* Simulated native HiDPI by using proper display specific files that need to be placed on the macOS system partition.
+* Pretty much every other Mac feature I have forgotten to list or may be problematic when setting up a hackintosh.
 
-Let's start by shutting down the computer and booting again, but this time, boot into Recovery from Clover's boot screen.
 
-**There is a script for ease installation of both audio solution for jack noise and HiDPI files.**
+## What you need:
 
-**Using the script:** 
-Scroll up and click clone or download, then click Download ZIP. Now browse into the master folder and run the Install.command within the Jack_Fix folder and then reboot!
+* Basic computer knowledge
+* Read and Write permissions on the `ESP` partition (believe me, it way easier to modify the `ESP` with either Linux or macOS than with Windows)
+* 16+GB USB flash drive.
+* A real Mac to obtain and create the macOS installer partition on a usb like one would do for any Mac or any trustworthy way to obtain the base macOS installer ([gibMacOS](https://github.com/corpnewt/gibMacOS) should work but I have never tried it).
+* A usb mouse to install macOS because the kernel extension that controls the I2C trackpad requires booting the complete operating system to work.
 
-Note that the script expects the **Hackintosh-macOS-Catalina-on-Dell-G7-7588-master** folder in **~/Downloads/**
+## rEFInd
 
-**Enable native HiDPI resolutions manually:**
-Wait for it to boot. Then go to the Utilities tab located at the top and launch terminal. 
+Everyone appreciates a good looking friendly software, Clover for example has a lot of themes that make the boot screen look fantastic. Sadly, OpenCore development is tied at the moment to improve performance and add new features, main reason on why there are no themes at the moment for OpenCore as it does not support them, yet. To have a nice looking boot while avoiding potencial issues between operating systems (as noted above, OpenCore does not allow to disable ACPI patching for Windows or Linux) this guide uses `rEFInd` as a chain-loader to achieve both.
 
-Now enter the following commands:
+My current boot screen looks like this:
+<div align="center"><img src="https://iili.io/JCaRgj.png""/>
+-----
 
-	csrutil disable
+## UEFI settings
+
+There are some settings that need to be tweaked before booting the macOS installer, enter the UEFI (continously press F2 after turning on the computer) and from default, set the settings as mentioned:
+
+* UEFI Boot Path Security -> Never
+* SATA Operation -> AHCI
+* Enabled both usb boot support and external USB port
+* Thunderbolt boot support
+* Thunderbolt security -> no security
+* PTT Security -> Disabled
+* Secure Boot Enable -> Disabled
+* Intel SGX -> Disabled
+* VT for Direct I/O -> Disabled
+* Auto OS Recovery Threshold -> Disabled
+* SupportAssist OS Recovery -> Disabled
+
+## Building the USB installer
+
+The USB setup should follow the way:
+* GUID Partition Map
+* 1 Partition
+* Mac OS Extended (Journaled)
+* macOS installer downloaded from the AppStore
+
+To do this, fire up the Terminal (located in `/Applications/Utilities`) and type `diskutil list`.
+
+This will give you a list of all the connected disks and their partitions. Take note of the disk identifier for your USB drive. DO NOT GUESS THIS AS WE ARE ABOUT TO ERASE IT! Then run the following replacing `disk#` with your actual identifier:
+
+	diskutil partitionDisk /dev/disk# GPT JHFS+ "USB" 100%
 	
-You are safe to reboot now, when logged go to terminal and type (because even with SIP disabled macOS system files are in a read-only volume):
+This will partition the disk as listed above and rename it to "USB".
+
+You can now run the corresponding command from Apple's own instructions - for this example, we'll be using the Catalina command:
+
+	sudo "/Applications/Install macOS Mojave.app/Contents/Resources/createinstallmedia" --volume /Volumes/USB
 	
-	sudo mount -uw /
-	killall Finder
+_This will take some time, and it doesn't output much for status updates_. It can take upwards of 30-40 minutes, so just be patient.  Grab a cup of coffee, read the news, catch up with friends and family - you'll be here for a bit
+
+When this completes, you will have a USB installer that can boot on a _real Mac_. We just need to get the Hackintosh-related stuff set up, and we'll be in business!
+
+For those that are timid around the command line - _CorpNewt_ put together a [script](https://github.com/corpnewt/USB-Installer-Creator) awhile back that can perform these actions for you. I have not used it myself though I have used other hackintosh utilities from _CorpNewt_ that are really handy and fully functional like **GenSMBIOS** or **ProperTree**.
+
+## Copying boot files to USB
+
+First run in terminal
+
+	diskutil list
 	
-Fine, we now need to place the files at:
+Take note of the other partition identifier of the USB (the partition where macOS is not installed). Let's mount it to copy the necessary files.
 
-	/System/Library/Displays/Contents/Resources/Overrides/
-
-After navigating to the folder above look for the Icons.plist file and rename it to IconsBackup.plist
-
-Copy the included folder and Icon.plist file included in the repo and reboot! You can now go to Settings -> Displays and choose scale resolution to pick the one that suits you.
-
-Reboot (you may not have audio, nor trackpad working for now), so repair kextcache with:
-
-	sudo kextcache -i /
+	sudo diskutil mount /dev/disk#s#
 	
-If no trackpad and/or audio repair kextcache one again and restart.
+Replace the `#` symbols with the corresponding disk indentifier obtained previously.
+With the partition mounted, copy the `OC` folder into the **root of the partition**. 
 
-Finally reboot again and you will be set up!
+## Manually create a boot entry
 
-* Note that every time you reboot the operating system will change the system volume to read-only again so make sure to run the proper commands if you want to modify again it later. 
+The UEFI that ships with the laptop allows creation of simple boot entries, as we do not need to append any boot arguments like when booting a Linux kernel directly, manually browse the partitions and point the boot entry to `OpenCore.efi`.
 
-* Also remember it is healthy to rebuild cache every time that you Hackintosh is updated.
+## Booting the installer
+
+Reorder the boot entries or press F12 at boot to choose the previously created boot entry. When you reach the OpenCore picker, choose the install macOS entry and install the operating system on an APFS partition (create the partition within Utilities -> Disk Utility). You will most likely need a USB mouse because the trackpad will not work.
+
+**Any boot from now on, should be with the USB OpenCore until you configure rEFInd (information on the Booting rEFInd section).** 
+
+## Post installation
+
+By default, when entering sleep, the OS will save the sleep image to RAM and disk, it will hibernate after 24-48h, prevent the hibernation by saving sleep image to RAM only. Run in terminal `sudo pmset -a hibernatemode 0` and we should be done with that.
+
+Finally we will enable HiDPI and fix some audio issues with the jack. Shut down the computer and when in OpenCore picker choose the Recovery entry, when booted disable go to Utilities and lauch the terminal once again, run `csrutil disable` and reboot one more time.
+
+Using Wi-Fi/Ethernet [download](https://github.com/Juan-VC/Hackintosh-macOS-Catalina-on-Dell-G7-7588/archive/master.zip) the master branch as zip.
+
+Fire the terminal to ensure the script that configures HiDPI and jack is executable
+
+	chmod +x /Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/Jack_Fix/install.command
+	
+Finally click the `install.command` found in the `Jack_Fix` folder, enter your user password to allow the script to run and wait for it to finish. Reboot and you will be done setting up OpenCore. Consider using a utility like [GenSMBIOS from CorpNewt](https://github.com/corpnewt/GenSMBIOS) to get a valid serial number and other SMBIOS related data for iMessage/Facetime to work.
+
+## Booting with rEFInd
+
+You may not be able to boot Windows or Linux with OpenCore, it requires further work which I am not into at the moment because I also wanted a nice GUI when booting. Mount the ESP or EFI type partition from your drive like it was done when copying boot files to the USB and navigate to the `EFI` folder, inside it, copy and paste the `OC` and `refind` folders.
+
+Create a boot entry that points to `refind_x64.efi` and restart (unplug the USB installation before restarting) to reach the rEFInd boot screen. You will see the Arch Linux, macOS and Windows entries I manually created for rEFInd as the 3 right-most boot entries. Remove any other unwanted entries hitting `ESC` in the rEFInd screen and confirm to hide them. Finally choose the entry with the macOS icon to boot OpenCore picker. Boot macOS for the last time to configure the rEFInd theme properly and make OpenCore boot macOS directly without a picker.
+
+Mount the ESP where rEFInd and OpenCore are located. Modify with your favorite editor lines 6 and 7 of the `refind.conf` removing the # symbols like shown
+
+	hideui singleuser,hints,arrows,label,badges
+	showtools shutdown
+	
+this will prevent hiding boot entries with `ESC` but set the theme as it should be used so take note of this and comment then uncomment the lines later if you need to hide more entries.
+
+Also remove the Arch Linux and/or Windows entry if you do not want it. To remove the Arch Linux entry for example, remove the lines
+
+	menuentry "Arch Linux" {
+    	icon /EFI/refind/icons/os_arch.png
+    	volume Arch-Linux
+    	loader /boot/vmlinuz-linux
+    	initrd /boot/initramfs-linux.img
+    	options  "root=/dev/sda2 rw add_efi_memmap initrd=/boot/intel-ucode.img"
+    	submenuentry "Boot using fallback initramfs" {
+         	initrd "/boot/initramfs-linux-fallback.img"
+    	}
+    	submenuentry "Boot to terminal" {
+         	add_options "systemd.unit=multi-user.target"
+    	}
+	}
+	
+If you want to go deep into rEFInd read the [official configuration site](https://www.rodsbooks.com/refind/configfile.html).
+
+To hide the OpenCore picker, open the `config.plist` file inside `OC` with a proper plist editor like PlistEdit Pro. Find the `Misc/Boot` child key `ShowPicker` and set it to No/False/0.
+
+**Optional** Rename `config-DW1820A.plist` inside OC to `config.plist` if you are using a DW1820A card for Wi-Fi/BT
+
+**Save the files and restart!**
 
 **Appreciate the work and want to donate?** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
-
 
 Enjoy you new ~~Mac~~ Hackintosh!
 
 ## Credits
 
 * Apple for macOS
-* The Clover team
+* OpenCore team
+* Acidanthera
 * VoodooI2C team
 * Rehabman
 * vit9696
 * PMheart
 * EliteMacx86
+* CorpNewt
