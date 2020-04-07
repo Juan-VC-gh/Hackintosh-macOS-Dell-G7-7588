@@ -6,7 +6,7 @@
 	
 ## What is OpenCore?
 
-OpenCore is no more than the most advanced and complex to setup bootloader for a PC. If feeling curious and or adventurous, chech the excellent-written [official OpenCore documentation](https://github.com/acidanthera/OpenCorePkg/raw/master/Docs/Configuration.pdf). There is really no better explanation of the bootlader and it's advantages than the one from _khronokernel_:
+OpenCore is no more than the most advanced and complex to setup bootloader for a PC. If feeling curious and or adventurous, check the excellent-written [official OpenCore documentation](https://github.com/acidanthera/OpenCorePkg/raw/master/Docs/Configuration.pdf). There is really no better explanation of the bootlader and it's advantages than the one from _khronokernel_:
 
 > OpenCore is an open-source unconventional first-in-class piece of software designed to intercept kernel loading to insert a highly advanced rootkit, designed to be an alternative to Clover. OpenCore aims to resolve the constraints and issues imposed by Clover by providing a more versatile and modular system. While OpenCore is primarily designed for Hackintosh systems, it can be used in any scenario where an emulated EFI is needed with many using it on KVMs and real Macs
 
