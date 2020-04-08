@@ -149,7 +149,7 @@ Fire the terminal to ensure the script that configures HiDPI and jack is executa
 
 	chmod +x ~/Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/Jack_Fix/install.command
 	
-Finally click the `install.command` found in the `Jack_Fix` folder, enter your user password to allow the script to run and wait for it to finish. Reboot and you will be done setting up OpenCore. Consider using a utility like [GenSMBIOS from CorpNewt](https://github.com/corpnewt/GenSMBIOS) to get a valid serial number and other SMBIOS related data for iMessage/Facetime to work.
+Finally double click the `install.command` found in the `Jack_Fix` folder, enter your user password to allow the script to run and wait for it to finish. Reboot and you will be done setting up OpenCore. Consider using a utility like [GenSMBIOS from CorpNewt](https://github.com/corpnewt/GenSMBIOS) to get a valid serial number and other SMBIOS related data for iMessage/Facetime to work.
 
 ## Booting with rEFInd
 
