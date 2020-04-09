@@ -220,9 +220,9 @@ The output should
 	setting offset 0x5bd to 0x00
 	grub> _
 	
-You should now have `CFG-Lock` disabled and can disable both `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` kernel quirks in the `OpenCore` `config.plist` file.
+You should now have `CFG-Lock` disabled and can set to false both, `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` kernel quirks in the `OpenCore` `config.plist` file.
 
-If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without patches, it tries to write `MSR 0xE2`, yet; it cannot.
+If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without the above quirks, it tries to write `MSR 0xE2`, yet; it cannot.
 
 You could also verify the above by creating a boot entry to `VerifyMsrE2.efi` found in /OC/Tools and checking the last line it outputs is
 
