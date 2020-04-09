@@ -147,9 +147,9 @@ Using Wi-Fi/Ethernet [download](https://github.com/Juan-VC/Hackintosh-macOS-Cata
 
 Fire the terminal to ensure the script that configures HiDPI and jack is executable
 
-	chmod +x /Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/Jack_Fix/install.command
+	chmod +x ~/Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/Jack_Fix/install.command
 	
-Finally click the `install.command` found in the `Jack_Fix` folder, enter your user password to allow the script to run and wait for it to finish. Reboot and you will be done setting up OpenCore. Consider using a utility like [GenSMBIOS from CorpNewt](https://github.com/corpnewt/GenSMBIOS) to get a valid serial number and other SMBIOS related data for iMessage/Facetime to work.
+Finally double click the `install.command` found in the `Jack_Fix` folder, enter your user password to allow the script to run and wait for it to finish. Reboot and you will be done setting up OpenCore. Consider using a utility like [GenSMBIOS from CorpNewt](https://github.com/corpnewt/GenSMBIOS) to get a valid serial number and other SMBIOS related data for iMessage/Facetime to work.
 
 ## Booting with rEFInd
 
@@ -184,7 +184,7 @@ If you want to go deep into rEFInd read the [official configuration site](https:
 
 To hide the OpenCore picker, open the `config.plist` file inside `OC` with a proper plist editor like PlistEdit Pro. Find the `Misc/Boot` child key `ShowPicker` and set it to No/False/0.
 
-**Optional** Rename `config-DW1820A.plist` inside OC to `config.plist` if you are using a DW1820A card for Wi-Fi/BT
+**Optional** Remove `config.plist` and rename `config-DW1820A.plist` inside OC to `config.plist` if you are using a DW1820A card for Wi-Fi/BT
 
 **Save the files and restart!**
 
