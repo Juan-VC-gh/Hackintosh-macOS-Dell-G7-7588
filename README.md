@@ -18,7 +18,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * OpenCore supports boot hotkey via `boot.efi` - hold `Option` or `ESC` at startup to choose a boot device, `Cmd+R` to enter Recovery or `Cmd+Option+P+R` to reset NVRAM
 * OpenCore is designed with the future in mind and uses modern methods to load 3rd party kernel extensions without breaking System Integrity Protection which Clover uses
 * BootCamp switching and boot device selection are supported by reading NVRAM variables set by Startup Disk just like a real mac
-* Future development for `AptioMemoryFix` (a UEFI drivers that fixes memory allocation for macOS) is directly tied to OpenCore, specifically being absorbed into OpenCore itself with the `FwRuntimeVariable.efi` being used as an extension
+* Future development for `AptioMemoryFix` (a UEFI driver that fixes memory allocation for macOS) is directly tied to OpenCore, specifically being absorbed into OpenCore itself with the `OpenRuntime.efi` being used as an extension
 * UEFI and Legacy boot modes are supported
 * More sophisticated patching such as mask patching means macOS updates have very little chance of breaking AMD systems, with AMD OSX patches supporting all versions of High Sierra, Mojave and Catalina. All future AMD OSX development is tied to Opencore, so for 10.15.2+ you'll need OpenCore
 
@@ -31,9 +31,9 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 ## What is not working?
 
 * SD card slot
-* USB-C storage devices
+* USB-C
 * Hibernation? Not tested, will most likely work with acidanthera's `HibernationFixup` kernel extension
-* No HDMI video/audio output. It is controlled by the Nvidia discrete gpu. There are no cuda drivers prior High Sierra (10.13), nor pascal neither turing cards will work.
+* No HDMI video/audio output. It is controlled by the Nvidia discrete gpu. There are no cuda drivers prior High Sierra (10.13), nor pascal neither turing cards will work. The Nvidia card is disabled by an ACPI call (_OFF) at the device scope (\_SB.PCI0.PEG0.PEGP)
 
 ## What works?
 
@@ -49,7 +49,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * External Thunderbolt 3 displays
 * USB ports, have been mapped and injected with a codeless kernel extension (like on a real Mac) to avoid the port limit on macOS
 * Sleep
-* Native CPU power management - by looking at `PR00` (how the cpu is defined for the laptop according to the ACPI tables) with `IORegistryExplorer` there is the `plugin-type` property with a value of `0x01` which indicates an active CPU PM, CFG-Lock bypass is required.
+* Native CPU power management - by looking at `PR00` (how the cpu is defined for the laptop according to the ACPI tables) with `IORegistryExplorer` there is the `plugin-type` property with a value of `0x01` which indicates an active CPU PM, `CFG-Lock` has to be disabled, the UEFI provides no option to disable it so it has to be done manually with a modified GRUB shell and the corresponding `CFG-Lock` offset found by extracting the PE32 image section binary from the firmware package which is later converted to a text file.
 * Wi-Fi (2.4Ghz and 5Ghz networks) and Bluetooth (AirDrop, Handoff, Auto Unlock) work flawlessly by using a card purchased listed in AliExpress as a `BCM94352Z` with part number: `08XRYC` which carries a bluetooth `vendor-id:0x413C` and `device-id:0x8143`, that means it is a `DW1550` (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. Other laptop recommended cards to get everything working are `BCM94360NG`, `DW1820A`, `DW1560` or `DW1830`. The `DW1820` is a special case because one needs to manually disabled the Active State Power Management (by injecting the `pci-aspm-default` = `0x0` to the PCIRootAddr of the card) from the PCI Express 2.0 for the card or else you will never boot macOS, will attach a configuration file with the key to disable aspm so one could replace the corresponding property on the OpenCore configuration file to get this low cost card alternative working as the other cards are beign sold expensive due to the fact there are not much m.2 hackintosh cards.
 * Simulated native HiDPI by using proper display specific files that need to be placed on the macOS system partition.
 * Pretty much every other Mac feature I have forgotten to list or may be problematic when setting up a hackintosh.
@@ -153,6 +153,8 @@ Finally double click the `install.command` found in the `Jack_Fix` folder, enter
 
 ## Booting with rEFInd
 
+**Update** Opencore supports themes with the `OpenCanopy.efi` driver introduced in version `0.5.7`
+
 You may not be able to boot Windows or Linux with OpenCore, it requires further work which I am not into at the moment because I also wanted a nice GUI when booting. Mount the ESP or EFI type partition from your drive like it was done when copying boot files to the USB and navigate to the `EFI` folder, inside it, copy and paste the `OC` and `refind` folders.
 
 Create a boot entry that points to `refind_x64.efi` and restart (unplug the USB installation before restarting) to reach the rEFInd boot screen. You will see the Arch Linux, macOS and Windows entries I manually created for rEFInd as the 3 right-most boot entries. Remove any other unwanted entries hitting `ESC` in the rEFInd screen and confirm to hide them. Finally choose the entry with the macOS icon to boot OpenCore picker. Boot macOS for the last time to configure the rEFInd theme properly and make OpenCore boot macOS directly without a picker.
@@ -186,11 +188,51 @@ To hide the OpenCore picker, open the `config.plist` file inside `OC` with a pro
 
 **Optional** Remove `config.plist` and rename `config-DW1820A.plist` inside OC to `config.plist` if you are using a DW1820A card for Wi-Fi/BT
 
-**Save the files and restart!**
+**Save the files and restart**
 
-**Guides are time consuming, if you appreciate the work and want to donate ->** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
+## CFG-Lock
+
+Most motherboard vendors lock the `MSR 0xE2` register, this is known as `CFG-Lock`, vendors might add an option to disable `CFG-Lock` within the UEFI menu, but it is not always the case. The XNU kernel requires access to this register for full CPU power management, Apple clearly has the register unlocked and without it, we need OpenCore kernel patches (setting `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` quirks to `TRUE`, both enabled by default from the files I upload) to boot. It might be an unstable solution depending on the machine and will most likely lead to a partial power management. It is highly recommended to unlock writing the register.
+
+Following [dreamwhite guide](https://github.com/dreamwhite/bios-extraction-guide/tree/master/Dell) you find
+
+	CFG Lock, VarStoreInfo (VarOffset/VarName): 0x5BD
+
+`0x5BD` is the offset of `CFG Lock` boolean bit. **This offset is motherboard specific! Do not attempt to use it with another computer rather than a Dell G7 7588**
+
+Setting this variable value with `0x00` the `CFG Lock` will be disabled, granting access to `MSR 0xE2` registry.
+
+### Set CFG-Lock to 0x00
+
+Place the `modGRUBShell.efi` in the `EFI` folder, it is a good idea to create the `modGRUBShell` folder and place it inside, create a boot entry for the file (if using `rEFInd` it will show you a new boot entry of the modified GRUB shell) otherwise with only `OpenCore` you will need to manually create a new boot entry for it or create it directly from the UEFI menu.
+
+Reboot and boot to the GRUB Shell. When ready to input commands type `setup_var 0x5BD 0x00` and press return. For any other laptop model, replace `0x5BD` with your motherboard specific offset.
+
+The output should
+
+	Looking for Setup variables...
+	var name: Setup, var size: 12, var guid: ec87d643-eba4-4bb5 - a1-e5-3f-3e-36-b2-0d-a9
+	
+	--> GUID does not match expected GUID, taking it nevertheless...
+	expected a different size of the Setup variable (got 5799 (0x16a7) bytes). Continue with care...
+	successfully obtained "Setup" variable from VSS (got 5799 (0x16a7) bytes).
+	offset 0x5bd is: 0x01
+	setting offset 0x5bd to 0x00
+	grub> _
+	
+You should now have `CFG-Lock` disabled and can disable both `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` kernel quirks in the `OpenCore` `config.plist` file.
+
+If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without patches, it tries to write `MSR 0xE2`, yet; it cannot.
+
+You could also verify the above by creating a boot entry to `VerifyMsrE2.efi` found in /OC/Tools and checking the last line it outputs is
+
+	This firmware has UNLOCKED MSR 0xE2 register!
+
+If you reached this far, congratulations!
 
 Enjoy you new ~~Mac~~ Hackintosh!
+
+**Guides are time consuming, if you appreciate the work and want to donate ->** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
 
 ## Credits
 
@@ -203,3 +245,4 @@ Enjoy you new ~~Mac~~ Hackintosh!
 * PMheart
 * EliteMacx86
 * CorpNewt
+* dreamwhite
