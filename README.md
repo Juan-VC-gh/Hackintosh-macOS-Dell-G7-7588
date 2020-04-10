@@ -227,6 +227,8 @@ If you cannot boot by only modifying the above kernel quirks it must be due to a
 You could also verify the above by creating a boot entry to `VerifyMsrE2.efi` found in /OC/Tools and checking the last line it outputs is
 
 	This firmware has UNLOCKED MSR 0xE2 register!
+	
+* `CFG-Lock` will re-enable everytime you update the firmware or reset it's settings so re-run `setup_var 0x5BD 0x00`.
 
 If you reached this far, congratulations!
 
