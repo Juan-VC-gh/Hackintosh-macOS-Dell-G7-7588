@@ -52,6 +52,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * Native CPU power management - by looking at `PR00` (how the cpu is defined for the laptop according to the ACPI tables) with `IORegistryExplorer` there is the `plugin-type` property with a value of `0x01` which indicates an active CPU PM, `CFG-Lock` has to be disabled, the UEFI provides no option to disable it so it has to be done manually with a modified GRUB shell and the corresponding `CFG-Lock` offset found by extracting the PE32 image section binary from the firmware package which is later converted to a text file.
 * Wi-Fi (2.4Ghz and 5Ghz networks) and Bluetooth (AirDrop, Handoff, Auto Unlock) work flawlessly by using a card purchased listed in AliExpress as a `BCM94352Z` with part number: `08XRYC` which carries a bluetooth `vendor-id:0x413C` and `device-id:0x8143`, that means it is a `DW1550` (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. Other laptop recommended cards to get everything working are `BCM94360NG`, `DW1820A`, `DW1560` or `DW1830`. The `DW1820` is a special case because one needs to manually disabled the Active State Power Management (by injecting the `pci-aspm-default` = `0x0` to the PCIRootAddr of the card) from the PCI Express 2.0 for the card or else you will never boot macOS, will attach a configuration file with the key to disable aspm so one could replace the corresponding property on the OpenCore configuration file to get this low cost card alternative working as the other cards are beign sold expensive due to the fact there are not much m.2 hackintosh cards.
 * Simulated native HiDPI by using proper display specific files that need to be placed on the macOS system partition.
+* AirPlay
 * Pretty much every other Mac feature I have forgotten to list or may be problematic when setting up a hackintosh.
 
 
@@ -104,7 +105,7 @@ This will give you a list of all the connected disks and their partitions. Take 
 	
 This will partition the disk as listed above and rename it to "USB".
 
-You can now run the corresponding command from Apple's own instructions - for this example, we'll be using the Catalina command:
+You can now run the corresponding command from Apple's own instructions - for this example, we'll be using the command for Catalina:
 
 	sudo "/Applications/Install macOS Catalina.app/Contents/Resources/createinstallmedia" --volume /Volumes/USB
 	
@@ -194,7 +195,7 @@ To hide the OpenCore picker, open the `config.plist` file inside `OC` with a pro
 
 Most motherboard vendors lock the `MSR 0xE2` register, this is known as `CFG-Lock`, vendors might add an option to disable `CFG-Lock` within the UEFI menu, but it is not always the case. The XNU kernel requires access to this register for full CPU power management, Apple clearly has the register unlocked and without it, we need OpenCore kernel patches (setting `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` quirks to `TRUE`, both enabled by default from the files I upload) to boot. It might be an unstable solution depending on the machine and will most likely lead to a partial power management. It is highly recommended to unlock writing the register.
 
-Following [dreamwhite guide](https://github.com/dreamwhite/bios-extraction-guide/tree/master/Dell) you find
+Following [dreamwhite's guide](https://github.com/dreamwhite/bios-extraction-guide/tree/master/Dell) you find
 
 	CFG Lock, VarStoreInfo (VarOffset/VarName): 0x5BD
 
