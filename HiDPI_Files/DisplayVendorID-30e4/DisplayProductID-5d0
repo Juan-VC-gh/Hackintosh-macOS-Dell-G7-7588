@@ -8,12 +8,6 @@
 	<string>Dell G7 Display</string>
 	<key>DisplayVendorID</key>
 	<integer>12516</integer>
-	<key>IODisplayEDID</key>
-	<data>
-	AP///////wAw5NAFAAAAAAAcAQSVIhN46nVllV5ZjygaUFQAAAABAQEBAQEBAQEBAQEB
-	AQEBLjaAoHA4H0AwIDUAWMIQAAAaWCuAoHA4H0AwIDUAWMIQAAAaAAAA/gAxME5QUIAx
-	NTZXRkMKAAAAAAAAQTGWABAAAAoBCiAgAJ4=
-	</data>
 	<key>scale-resolutions</key>
 	<array>
 		<data>

@@ -22,7 +22,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * UEFI and Legacy boot modes are supported
 * More sophisticated patching such as mask patching means macOS updates have very little chance of breaking AMD systems, with AMD OSX patches supporting all versions of High Sierra, Mojave and Catalina. All future AMD OSX development is tied to Opencore, so for 10.15.2+ you'll need OpenCore
 
-## Important things to note about OpenCore
+## Important things to note about OpenCore and macOS
 
 * An ESP partition of at least 200MB is required on the drive macOS will be installed. If you plan to dual/triple boot with the same drive, it's recommended to install macOS first as it creates the ESP of the required size.
 * Kernel extensions are loaded in the order specified in your config file, so you must load an extension's dependencies before you load the extension itself.
@@ -31,8 +31,8 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 ## What is not working?
 
 * SD card slot
-* USB-C
-* Hibernation? Not tested, will most likely work with acidanthera's `HibernationFixup` kernel extension
+* Thunderbolt 3 hotplug (USB-C storage devices)
+* Hibernation
 * No HDMI video/audio output. It is controlled by the Nvidia discrete gpu. There are no cuda drivers prior High Sierra (10.13), nor pascal neither turing cards will work. The Nvidia card is disabled by an ACPI call (_OFF) at the device scope (\_SB.PCI0.PEG0.PEGP)
 
 ## What works?
@@ -53,6 +53,19 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * Wi-Fi (2.4Ghz and 5Ghz networks) and Bluetooth (AirDrop, Handoff, Auto Unlock) work flawlessly by using a card purchased listed in AliExpress as a `BCM94352Z` with part number: `08XRYC` which carries a bluetooth `vendor-id:0x413C` and `device-id:0x8143`, that means it is a `DW1550` (4352+20702 combo) but sold as a m.2 form factor 2230 rather than a half mini pcie. Other laptop recommended cards to get everything working are `BCM94360NG`, `DW1820A`, `DW1560` or `DW1830`. The `DW1820` is a special case because one needs to manually disabled the Active State Power Management (by injecting the `pci-aspm-default` = `0x0` to the PCIRootAddr of the card) from the PCI Express 2.0 for the card or else you will never boot macOS, will attach a configuration file with the key to disable aspm so one could replace the corresponding property on the OpenCore configuration file to get this low cost card alternative working as the other cards are beign sold expensive due to the fact there are not much m.2 hackintosh cards.
 * Simulated native HiDPI by using proper display specific files that need to be placed on the macOS system partition.
 * Pretty much every other Mac feature I have forgotten to list or may be problematic when setting up a hackintosh.
+
+## Screenshots (serial and uuid have been masked)
+
+![SystemOverview](https://iili.io/Jz277s.png)
+
+![SystemReport-Hardware](https://iili.io/Jz2YkG.png)
+
+![VideoProcHardwareInfo](https://iili.io/Jz20hl.png)
+
+![RazerWP1](https://iili.io/Jz2apf.md.png)
+
+![RazerWP2](https://iili.io/Jz2lI4.png)
+
 
 
 ## What you need:
@@ -79,7 +92,6 @@ There are some settings that need to be tweaked before booting the macOS install
 * UEFI Boot Path Security -> Never
 * SATA Operation -> AHCI
 * Enabled both usb boot support and external USB port
-* Thunderbolt boot support
 * Thunderbolt security -> no security
 * PTT Security -> Disabled
 * Secure Boot Enable -> Disabled
@@ -204,9 +216,9 @@ Setting this variable value with `0x00` the `CFG Lock` will be disabled, grantin
 
 ### Set CFG-Lock to 0x00
 
-Place the `modGRUBShell.efi` in the `EFI` folder, it is a good idea to create the `modGRUBShell` folder and place it inside, create a boot entry for the file (if using `rEFInd` it will show you a new boot entry of the modified GRUB shell) otherwise with only `OpenCore` you will need to manually create a new boot entry for it or create it directly from the UEFI menu.
+We now need to launch the shell that will allow to change the `CFG Lock` value. `modGRUBShell.efi` (the shell we need to launch) is included as an OpenCore tool so no need to create a boot entry for it, reboot to OpenCore menu and select `modGRUBShell.efi`.
 
-Reboot and boot to the GRUB Shell. When ready to input commands type `setup_var 0x5BD 0x00` and press return. For any other laptop model, replace `0x5BD` with your motherboard specific offset.
+When ready to input commands type `setup_var 0x5BD 0x00` and press return. For any other laptop model, replace `0x5BD` with your motherboard specific offset.
 
 The output should
 
@@ -224,7 +236,7 @@ You should now have `CFG-Lock` disabled and can set to false both, `AppleCpuPmCf
 
 If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without the above quirks, it tries to write `MSR 0xE2`, yet; it cannot.
 
-You could also verify the above by creating a boot entry to `VerifyMsrE2.efi` found in /OC/Tools and checking the last line it outputs is
+You could also verify the above by launching `VerifyMsrE2.efi` tool included with OpenCore. and checking the last line it outputs, if everything was correct it should be:
 
 	This firmware has UNLOCKED MSR 0xE2 register!
 	
