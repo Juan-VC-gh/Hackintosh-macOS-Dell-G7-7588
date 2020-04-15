@@ -65,9 +65,6 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 
 ![RazerWP1](https://iili.io/Jz2apf.md.png)
 
-![RazerWP2](https://iili.io/Jz2lI4.png)
-
-
 
 ## What you need:
 
