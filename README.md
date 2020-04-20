@@ -39,14 +39,14 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 
 * Keyboard with the special keys like volume or brightness control
 * Brightness control
-* Intel Quartz Extreme and Intel Core Image
+* Intel Quartz Extreme and Intel Core Image (QE/CI)
 * Hardware encoding and decoding for codecs like h.264 and h.265 (HEVC)
 * iMessage/FaceTime
 * Ethernet
 * Trackpad with native macOS gestures (disable smart zoom under Scroll & Zoom to avoid two finger touch delays, also happens on real Macbooks)
 * Sound (Internal speakers, internal mic, jack)
 * Battery display and manager
-* External Thunderbolt 3 displays
+* External Thunderbolt 3 displays and gpus.
 * USB ports, have been mapped and injected with a codeless kernel extension (like on a real Mac) to avoid the port limit on macOS
 * Sleep
 * Native CPU power management - by looking at `PR00` (how the cpu is defined for the laptop according to the ACPI tables) with `IORegistryExplorer` there is the `plugin-type` property with a value of `0x01` which indicates an active CPU PM, `CFG-Lock` has to be disabled, the UEFI provides no option to disable it so it has to be done manually with a modified GRUB shell and the corresponding `CFG-Lock` offset found by extracting the PE32 image section binary from the firmware package which is later converted to a text file.
@@ -64,6 +64,8 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 ![VideoProcHardwareInfo](https://iili.io/Jz20hl.png)
 
 ![RazerWP1](https://iili.io/Jz2apf.md.png)
+
+![neofetch](https://iili.io/JT3qFI.png)
 
 
 ## What you need:
