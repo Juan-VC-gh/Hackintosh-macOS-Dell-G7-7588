@@ -145,7 +145,10 @@ The UEFI that ships with the laptop allows creation of simple boot entries, as w
 
 ## Booting the installer
 
-Reorder the boot entries or press F12 at boot to choose the previously created boot entry. When you reach the OpenCore picker, choose the install macOS entry and install the operating system on an APFS partition (create the partition within Utilities -> Disk Utility). You will most likely need a USB mouse because the trackpad will not work.
+Reorder the boot entries to make OpenCore USB the first one (can be removed later). When you reach the OpenCore picker, choose the install macOS entry and install the operating system on an APFS partition (create the partition within Utilities -> Disk Utility). You will most likely need a USB mouse because the trackpad will not work.
+
+If the installer shows no disk to install the OS you probably need to head to Utilities -> Disk Utility and create and APFS partition before continuing.
+When configuring how macOS will be installed (disk, user and password, etc) DO NOT enable FileVault as no prerequisited for it have been configured. I do not use it so if you want to, you need to configure it yourself. After going through the setup proccess let the computer do the work while you stretch. You will have macOS ready soon!
 
 **Any boot from now on, should be with the USB OpenCore until you configure rEFInd (information on the Booting rEFInd section).** 
 
@@ -169,7 +172,7 @@ Finally double click the `install.command` found in the `Jack_Fix` folder, enter
 
 You may not be able to boot Windows or Linux with OpenCore, it requires further work which I am not into at the moment because I also wanted a nice GUI when booting. Mount the ESP or EFI type partition from your drive like it was done when copying boot files to the USB and navigate to the `EFI` folder, inside it, copy and paste the `OC` and `refind` folders.
 
-Create a boot entry that points to `refind_x64.efi` and restart (unplug the USB installation before restarting) to reach the rEFInd boot screen. You will see the Arch Linux, macOS and Windows entries I manually created for rEFInd as the 3 right-most boot entries. Remove any other unwanted entries hitting `ESC` in the rEFInd screen and confirm to hide them. Finally choose the entry with the macOS icon to boot OpenCore picker. Boot macOS for the last time to configure the rEFInd theme properly and make OpenCore boot macOS directly without a picker.
+Create a boot entry that points to `refind_x64.efi` and restart (it is safe to unplug the USB installation and remove it's entry before restarting) to reach the rEFInd boot screen. You will see the Arch Linux, macOS and Windows entries I manually created for rEFInd as the 3 right-most boot entries. Remove any other unwanted entries hitting `ESC` in the rEFInd screen and confirm to hide them. Finally choose the entry with the macOS icon to boot OpenCore picker. Boot macOS for the last time to configure the rEFInd theme properly and make OpenCore boot macOS directly without a picker.
 
 Mount the ESP where rEFInd and OpenCore are located. Modify with your favorite editor lines 6 and 7 of the `refind.conf` removing the # symbols like shown
 
@@ -234,7 +237,7 @@ The output should
 	
 You should now have `CFG-Lock` disabled and can set to false both, `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` kernel quirks in the `OpenCore` `config.plist` file.
 
-If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without the above quirks, it tries to write `MSR 0xE2`, yet; it cannot.
+If you cannot boot by only modifying the above kernel quirks it must be due to a XNU kernel panic because without the above quirks, it tries to write `MSR 0xE2`, yet; it cannot (that means cfg-lock has not been successfully disabled).
 
 You could also verify the above by launching `VerifyMsrE2.efi` tool included with OpenCore. and checking the last line it outputs, if everything was correct it should be:
 
