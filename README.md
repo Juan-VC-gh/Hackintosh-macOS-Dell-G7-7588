@@ -31,4 +31,4 @@ For a more friendly reading experience the guide is now hosted [here](https://ju
 
 ## Support me
 
-**Guides are time consuming, ff you appreciate the work and want to support me ->** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
+**Guides are time consuming, if you appreciate the work and want to support me ->** [PayPal](<https://www.paypal.me/juanvasquezcastro>)
