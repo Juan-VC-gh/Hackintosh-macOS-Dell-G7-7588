@@ -1,4 +1,5 @@
-# <p align="center">This guide is only for Dell G7 7588!<br/><br/>
+# <p align="center">Dell G7 7588 Hackintosh<br/>
+## Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
 
 <p align="center">
 	<img src="https://iili.io/JCfJ3u.png" width="200" height="48"/>
