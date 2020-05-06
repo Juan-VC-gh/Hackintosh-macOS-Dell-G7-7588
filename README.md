@@ -22,7 +22,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * Disks: 1x 512GB Adata XPG Gammix S11 Pro (NVMe) + 1x 1TB Mechanical Drive
 * Audio Codec: ALC256 (3246)
 * Wifi/Bluetooth: BCM94352Z (part: 08XRYC)
-* Ethernet: Qualcomm Athernos Killer E2400
+* Ethernet: Qualcomm Atheros Killer E2400
 
 The above configuration is my current setup. I have only switched the NVMe drive and the wifi/bt card. Any NVMe will most likely work while for wireless networking there are not much good options, check the guide for more info. The guide should also work for the i5 laptop variant (battery will not probably last as long), remove CPUFriend.kext and CPUFriendDataProvider.kext inside OC/Kexts. 
 
