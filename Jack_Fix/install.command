@@ -8,7 +8,8 @@ echo "This Script Requires Administrator Privileges!"
 
 sudo mount -uw /
 
-cd ~/Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/Jack_Fix
+C_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $C_DIR
 
 echo "Copying files to fix ALC256 combojack noise issue"
 
@@ -70,7 +71,6 @@ echo "Install hda-verb:"
 progressIndicator
 echo -ne "\n"
 
-
 sudo cp jack.fix.plist /Library/LaunchAgents/
 sudo chmod 644 /Library/LaunchAgents/jack.fix.plist
 sudo chown root:wheel /Library/LaunchAgents/jack.fix.plist
@@ -84,7 +84,7 @@ sudo mv Icons.plist IconsBackup.plist
 
 sudo mkdir DisplayVendorID-30e4
 
-cd ~/Downloads/Hackintosh-macOS-Catalina-on-Dell-G7-7588-master/HiDPI_Files
+cd $C_DIR/../HiDPI_Files/
 
 echo "Copying files to enable native HiDPI resolutions"
 
@@ -102,6 +102,16 @@ echo -ne "\n"
 
 sudo cp DisplayProductID-5d0.icns /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4/
 echo "Install DisplayProductID-5d0.icns:"
+progressIndicator
+echo -ne "\n"
+
+sudo cp DisplayProductID-540 /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4/
+echo "Install DisplayProductID-540:"
+progressIndicator
+echo -ne "\n"
+
+sudo cp DisplayProductID-540.icns /System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4/
+echo "Install DisplayProductID-540.icns:"
 progressIndicator
 echo -ne "\n"
 
