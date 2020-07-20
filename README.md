@@ -13,7 +13,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 
 > OpenCore is an open-source unconventional first-in-class piece of software designed to intercept kernel loading to insert a highly advanced rootkit, designed to be an alternative to Clover. OpenCore aims to resolve the constraints and issues imposed by Clover by providing a more versatile and modular system. While OpenCore is primarily designed for Hackintosh systems, it can be used in any scenario where an emulated EFI is needed with many using it on KVMs and real Macs
 
-**Latest source files update: [June 2, 2020]** Updated OpenCore to 0.5.9, enabled devices to request extra USB current to charge iPads or similar devices by adding proper USBX device according to SMBIOS via ACPI (SSDT-USBX.aml), updated kexts, removed apfs.efi (using OpenRuntime builtin APFS), new method (PMPM) to inject plugin-type=1 to the first CPU (_SB.PR00) thread, updated kexts including critical fix for VoodooGPIO plugin, updates to Jack-HiDPI script, removed SSDT-HPET.aml,renamed SSDT-DDGPU.aml to SSDT-dDGPU.aml, using SSDT-PNLFCFL.aml (new pnlf acpi device for CFL).
+**Latest source files update: [July 20, 2020]** Using AppleALC-layout-id=21, CodecCommander+JackFix not needed anymore, edit script to copy HiDPI files only
 
 ## System information:
 
