@@ -17,10 +17,6 @@ cd HiDPI_Files/ && ./install.sh && cd ../
 echo -ne "\n"
 
 
-echo "Audio Jack Fixes"
-cd ALCPlugFix/ && ./install.sh && cd ../
-echo -ne "\n"
-
 defaultColor="\033[0m"
 red="\033[0;31m"
 

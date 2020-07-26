@@ -48,6 +48,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-dDGPU.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -691,13 +699,13 @@
 				</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				CQClPg==
+				BQClPg==
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,2,0</string>
 				<key>device-id</key>
 				<data>
-				pT4AAA==
+				pT4ABQ==
 				</data>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
