@@ -28,7 +28,7 @@ The above configuration is my current setup. I have only switched the NVMe drive
 
 ## Guide
 
-For a more friendly reading experience the guide is now hosted [here](https://juan-vc.github.io/oc-g7-guide/) supports fonts, sizes and white/dark/sepia mode.
+For a more friendly reading experience the guide is now hosted [here](https://juan-vc.github.io/oc-g7-guide/).
 
 ## Support me
 
