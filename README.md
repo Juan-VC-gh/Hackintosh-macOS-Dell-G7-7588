@@ -1,10 +1,6 @@
 # <p align="center">Dell G7 7588 Hackintosh<br/>
 ## <p align="center">Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
 
-<p align="center">
-	<img src="https://iili.io/JCfJ3u.png" width="200" height="48"/>
-</p>
-
 -----
 	
 ## What is OpenCore?
