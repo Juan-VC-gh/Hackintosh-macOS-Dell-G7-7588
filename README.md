@@ -1,10 +1,6 @@
 # <p align="center">Dell G7 7588 Hackintosh<br/>
 ## <p align="center">Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
 
-<p align="center">
-	<img src="https://iili.io/JCfJ3u.png" width="200" height="48"/>
-</p>
-
 -----
 	
 ## What is OpenCore?
@@ -28,7 +24,7 @@ The above configuration is my current setup. I have only switched the NVMe drive
 
 ## Guide
 
-For a more friendly reading experience the guide is now hosted [here](https://juan-vc.github.io/oc-g7-guide/) supports fonts, sizes and white/dark/sepia mode.
+For a more friendly reading experience the guide is now hosted [here](https://juan-vc.github.io/oc-g7-guide/).
 
 ## Support me
 
