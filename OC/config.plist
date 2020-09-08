@@ -1304,22 +1304,7 @@
 			<integer>0</integer>
 		</dict>
 		<key>Entries</key>
-		<array>
-			<dict>
-				<key>Arguments</key>
-				<string>root=/dev/sda2 rw add_efi_memmap initrd=/initramfs-linux.img initrd=/boot/intel-ucode.img</string>
-				<key>Auxiliary</key>
-				<false/>
-				<key>Comment</key>
-				<string>Arch Linux Kernel</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Name</key>
-				<string>Arch Linux</string>
-				<key>Path</key>
-				<string>PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,00-00-00-00-00-00-00-00)/\boot\vmlinuz-linux</string>
-			</dict>
-		</array>
+		<array/>
 		<key>Security</key>
 		<dict>
 			<key>AllowNvramReset</key>
