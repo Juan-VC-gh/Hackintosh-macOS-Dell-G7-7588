@@ -10,7 +10,7 @@ echo -ne "\n"
 sudo mount -uw /
 
 C_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-cd $C_DIR #navigate to path where install.sh was invoked
+cd $C_DIR #navigate to path where post_install.command was invoked
 
 echo "Enable HiDPI"
 cd HiDPI_Files/ && ./install.sh && cd ../
