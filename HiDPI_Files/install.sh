@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export mpoint=/System/Library/Displays/Contents/Resources/Overrides/
+export mpoint=/System/Library/Displays/Contents/Resources/Overrides
 sudo mount -o nobrowse -t apfs /dev/disk"$1"s"$2" $mpoint
 sudo mkdir $mpoint/System/Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4
 sudo mv $mpoint/System/Library/Displays/Contents/Resources/Overrides/Icons.plist $mpoint/System/Library/Displays/Contents/Resources/Overrides/IconsBackup.plist
