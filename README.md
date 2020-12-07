@@ -1,5 +1,5 @@
 # <p align="center">Dell G7 7588 Hackintosh<br/>
-## <p align="center">Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
+## <p align="center">For obvious reasons like unlocking the Intel MSR 0xE2 registry, Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
 	
 ## What is OpenCore?
 
