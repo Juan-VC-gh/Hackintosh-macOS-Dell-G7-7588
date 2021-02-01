@@ -257,6 +257,10 @@
 				</data>
 				<key>model</key>
 				<string>Intel UHD Graphics 630</string>
+				<key>enable-backlight-registers-fix</key>
+				<data>
+				AQAAAA==
+				</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
