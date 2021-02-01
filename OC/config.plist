@@ -235,6 +235,10 @@
 				<string>Display Controller</string>
 				<key>model</key>
 				<string>Intel UHD Graphics 630</string>
+				<key>enable-backlight-registers-fix</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>name</key>
 				<string>Intel UHD Graphics 630</string>
 			</dict>
