@@ -18,7 +18,7 @@ cd $C_DIR #navigate to path where post_install.command was invoked
 
 
 cd HiDPI_Files/ && ./install.sh && cd ..
-cd ComboJack/ComboJack_Installer_v2 && ./install.sh && cd ..
+cd ComboJack/ComboJack_Installer_defaultHeadphones && ./install.sh && cd ..
 
 defaultColor="\033[0m"
 red="\033[0;31m"

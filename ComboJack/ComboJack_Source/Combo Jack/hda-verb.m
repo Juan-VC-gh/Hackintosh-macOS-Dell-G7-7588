@@ -673,7 +673,7 @@ void JackBehavior()
 
 uint32_t CFPopUpMenu()
 {
-    CFOptionFlags responsecode = kCFUserNotificationOtherResponse;
+    CFOptionFlags responsecode = kCFUserNotificationDefaultResponse; // headphones mode by default
     
 //    while (true)
 //    {

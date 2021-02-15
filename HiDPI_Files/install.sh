@@ -11,4 +11,5 @@ sudo cp DisplayProductID-540 /Library/Displays/Contents/Resources/Overrides/Disp
 sudo cp DisplayProductID-540.icns /Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4/
 
 echo "Done!"
+echo
 exit 0
