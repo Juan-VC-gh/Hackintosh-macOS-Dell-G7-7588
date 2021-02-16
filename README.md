@@ -18,7 +18,7 @@ OpenCore is no more than the most advanced and complex to setup bootloader for a
 * Wifi/Bluetooth: BCM94352Z (part: 08XRYC)
 * Ethernet: Qualcomm Atheros Killer E2400
 
-The above configuration is my current setup. I have only swapped the NVMe drive and the Intel wifi/bt card. Any NVMe will most likely work while for wireless networking there are not much good options, check the guide for more info. The guide should also work for the i5 laptop variant (battery will not probably last as long), remove CPUFriend.kext and CPUFriendDataProvider.kext inside OC/Kexts, power saving specific kernel extensions for the i7-8750H.
+The above configuration is my current setup. I only swapped the NVMe drive and the Intel wifi/bt card. Any NVMe will most likely work while for wireless networking there are not much good options, check the [What works?](https://juan-vc.github.io/oc-g7-guide/what-works/work-notWork.html#what-works) section from the guide for more info.
 
 ## Guide
 
