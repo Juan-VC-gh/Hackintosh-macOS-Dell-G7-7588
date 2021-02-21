@@ -20,6 +20,15 @@ cd $C_DIR #navigate to path where post_install.command was invoked
 cd HiDPI_Files/ && ./install.sh && cd ..
 cd ComboJack_Installer_defaultHeadphones && ./install.sh && cd ..
 
+# disable unnecesary/not supported features and save power
+sudo pmset -a hibernatemode 0
+sudo rm -f /var/vm/sleepimage
+sudo mkdir /var/vm/sleepimage
+sudo pmset -a standby 0
+sudo pmset -a autopoweroff 0
+sudo pmset -a powernap 0
+sudo pmset -a proximitywake 0
+
 defaultColor="\033[0m"
 red="\033[0;31m"
 
