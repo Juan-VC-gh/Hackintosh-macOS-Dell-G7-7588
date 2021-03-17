@@ -347,10 +347,12 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>WLAN</string>
+				<key>compatible</key>
+				<string>pci14e4,4353</string>
 				<key>device_type</key>
 				<string>Airport Extreme</string>
 				<key>model</key>
-				<string>BCM4352 802.11ac Wireless</string>
+				<string>Intel Wireless-AC 9560</string>
 				<key>name</key>
 				<string>Airport</string>
 			</dict>
