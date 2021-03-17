@@ -8,19 +8,11 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-DDGPU.aml</string>
+				<string>SSDT-PLUG.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-DDGPU.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-DMAC.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-DMAC.aml</string>
+				<string>SSDT-PLUG.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -32,27 +24,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-MCHC.aml</string>
+				<string>SSDT-HPET.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-MCHC.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-PLUG.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-PMCR.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-PMCR.aml</string>
+				<string>SSDT-HPET.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -64,19 +40,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-SBUS.aml</string>
+				<string>SSDT-GPI0.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-SBUS.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-TYPC-TB3.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-TYPC-TB3.aml</string>
+				<string>SSDT-GPI0.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -88,15 +56,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-XMIX.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-XMIX.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-XOSI.aml</string>
+				<string>SSDT-XOSI.aml Needed by BrightnessKeys to properly manage the keys</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -104,27 +64,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-XRAM.aml</string>
+				<string>SSDT-DDGPU.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-XRAM.aml</string>
+				<string>SSDT-DDGPU.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-XSPI.aml</string>
+				<string>SSDT-TYPC-TB3.aml</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
-				<string>SSDT-XSPI.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-XTML.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-XTML.aml</string>
+				<string>SSDT-TYPC-TB3.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -133,14 +85,14 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>change OSID to XSID</string>
+				<string>HPET _CRS to XCRS Rename</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
-				T1NJRA==
+				JV9DUlM=
 				</data>
 				<key>Limit</key>
 				<integer>0</integer>
@@ -149,10 +101,11 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
+				AAAAAA==
 				</data>
 				<key>Replace</key>
 				<data>
-				WFNJRA==
+				JVhDUlM=
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -163,11 +116,84 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data>
+				AAAAAA==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change _OSI to XOSI</string>
+				<string>RTC IRQ 8 Patch</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				IgABeQA=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>Replace</key>
+				<data>
+				IgAAeQA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>TIMR IRQ 0 Patch</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				IgEAeQA=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>Replace</key>
+				<data>
+				IgAAeQA=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Change _OSI to XOSI</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -183,6 +209,7 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
+				AAAAAA==
 				</data>
 				<key>Replace</key>
 				<data>
@@ -197,41 +224,7 @@
 				<integer>0</integer>
 				<key>TableSignature</key>
 				<data>
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix RTC _STA bug</string>
-				<key>Count</key>
-				<integer>0</integer>
-				<key>Enabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				oAqTU1RBUwE=
-				</data>
-				<key>Limit</key>
-				<integer>0</integer>
-				<key>Mask</key>
-				<data>
-				</data>
-				<key>OemTableId</key>
-				<data>
-				</data>
-				<key>Replace</key>
-				<data>
-				oAqRCv8L//8=
-				</data>
-				<key>ReplaceMask</key>
-				<data>
-				</data>
-				<key>Skip</key>
-				<integer>0</integer>
-				<key>TableLength</key>
-				<integer>0</integer>
-				<key>TableSignature</key>
-				<data>
-				RFNEVA==
+				AAAAAA==
 				</data>
 			</dict>
 		</array>
@@ -329,7 +322,7 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				AACbPg==
+				CQClPg==
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built-in</string>
@@ -340,7 +333,7 @@
 				AQAAAA==
 				</data>
 				<key>model</key>
-				<string>Intel UHD Graphics 630 (Mobile)</string>
+				<string>Intel UHD Graphics 630</string>
 				<key>name</key>
 				<string>Intel UHD Graphics 630</string>
 			</dict>
@@ -837,7 +830,7 @@
 			<key>CustomSMBIOSGuid</key>
 			<true/>
 			<key>DisableIoMapper</key>
-			<false/>
+			<true/>
 			<key>DisableLinkeditJettison</key>
 			<true/>
 			<key>DisableRtcChecksum</key>
@@ -1163,8 +1156,10 @@
 			<integer>70</integer>
 			<key>PlayChime</key>
 			<string>Auto</string>
+			<key>ResetTrafficClass</key>
+			<false/>
 			<key>SetupDelay</key>
-			<integer>500000</integer>
+			<integer>500</integer>
 			<key>VolumeAmplifier</key>
 			<integer>143</integer>
 		</dict>
@@ -1172,7 +1167,6 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>CrScreenshotDxe.efi</string>
 			<string>HfsPlus.efi</string>
 			<string>OpenCanopy.efi</string>
 			<string>OpenRuntime.efi</string>
@@ -1182,11 +1176,9 @@
 			<key>KeyFiltering</key>
 			<false/>
 			<key>KeyForgetThreshold</key>
-			<integer>5</integer>
-			<key>KeyMergeThreshold</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>KeySupport</key>
-			<true/>
+			<false/>
 			<key>KeySupportMode</key>
 			<string>Auto</string>
 			<key>KeySwap</key>
@@ -1207,6 +1199,8 @@
 			<key>DirectGopRendering</key>
 			<false/>
 			<key>ForceResolution</key>
+			<false/>
+			<key>GopPassThrough</key>
 			<false/>
 			<key>IgnoreTextInGraphics</key>
 			<false/>
@@ -1266,6 +1260,8 @@
 		</dict>
 		<key>Quirks</key>
 		<dict>
+			<key>ActivateHpetSupport</key>
+			<false/>
 			<key>DisableSecurityPolicy</key>
 			<false/>
 			<key>ExitBootServicesDelay</key>
