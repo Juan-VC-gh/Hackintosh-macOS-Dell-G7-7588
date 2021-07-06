@@ -1232,7 +1232,7 @@
 			<key>KeyFiltering</key>
 			<false/>
 			<key>KeyForgetThreshold</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>KeySupport</key>
 			<true/>
 			<key>KeySupportMode</key>
