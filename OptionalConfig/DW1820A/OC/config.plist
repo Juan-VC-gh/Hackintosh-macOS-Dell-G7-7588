@@ -346,8 +346,6 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built-in</string>
 				<key>alc-delay</key>
 				<integer>500</integer>
 				<key>device_type</key>
@@ -361,8 +359,6 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1d,0x6)/Pci(0x0,0x0)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>WLAN</string>
 				<key>compatible</key>
 				<string>pci14e4,4353</string>
 				<key>device_type</key>
@@ -380,17 +376,31 @@
 				<data>
 				CQClPg==
 				</data>
-				<key>AAPL,slot-name</key>
-				<string>Built-in</string>
 				<key>device_type</key>
 				<string>Display Controller</string>
 				<key>enable-backlight-registers-fix</key>
 				<data>
 				AQAAAA==
 				</data>
+				<key>framebuffer-fbmem</key>
+				<data>
+				AACQAA==
+				</data>
+				<key>framebuffer-patch-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-stolenmem</key>
+				<data>
+				AAAwAQ==
+				</data>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>igfxfw</key>
+				<data>
+				AgAAAA==
+				</data>
 				<key>model</key>
-				<string>Intel UHD Graphics 630</string>
-				<key>name</key>
 				<string>Intel UHD Graphics 630</string>
 			</dict>
 		</dict>
@@ -1061,6 +1071,24 @@
 				<key>Auxiliary</key>
 				<true/>
 				<key>Comment</key>
+				<string>CFGUnlock.efi</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Name</key>
+				<string>CFGUnlock.efi</string>
+				<key>Path</key>
+				<string>CFGUnlock.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
 				<string>ControlMsrE2.efi</string>
 				<key>Enabled</key>
 				<true/>
@@ -1266,9 +1294,30 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>HfsPlus.efi</string>
-			<string>OpenCanopy.efi</string>
-			<string>OpenRuntime.efi</string>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>HfsPlus.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenRuntime.efi</string>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>OpenCanopy.efi</string>
+			</dict>
 		</array>
 		<key>Input</key>
 		<dict>
@@ -1367,6 +1416,8 @@
 			<true/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
+			<key>ForceOcWriteFlash</key>
+			<false/>
 			<key>ForgeUefiSupport</key>
 			<false/>
 			<key>IgnoreInvalidFlexRatio</key>
