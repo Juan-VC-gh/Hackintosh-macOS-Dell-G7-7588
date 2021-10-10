@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-echo "Enabling HiDPI"
+echo "Enabling HiDPI..."
 
 sudo mkdir -p /Library/Displays/Contents/Resources/Overrides/DisplayVendorID-30e4/
 sudo cp Icons.plist /Library/Displays/Contents/Resources/Overrides/
@@ -12,4 +12,4 @@ sudo cp DisplayProductID-540.icns /Library/Displays/Contents/Resources/Overrides
 
 echo "Done!"
 echo
-exit 0
+exit 1
