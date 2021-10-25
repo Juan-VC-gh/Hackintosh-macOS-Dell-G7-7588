@@ -1,4 +1,5 @@
 # <p align="center">Dell G7 7588 Hackintosh<br/>
+## <p align="center">Day one macOS Monterey Support! Look for Monterey on the App Store and update normally as any Mac or create a USB installer for a clean install, it is up to you<br/>
 ## <p align="center">For obvious reasons like unlocking the Intel MSR 0xE2 registry, Hackintosh is hardware specific. This guide is only for Dell G7 7588!<br/>
 	
 ## What is OpenCore?
