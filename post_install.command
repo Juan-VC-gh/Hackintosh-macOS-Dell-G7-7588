@@ -17,13 +17,13 @@ cd "$(dirname "$0")"
 cd ALCPlugFix-Swift && ./install.sh
 
 # disable unnecesary/not supported features and save power
-sudo pmset -a hibernatemode 0
 sudo rm -rf /var/vm/sleepimage
 sudo mkdir -p /var/vm/sleepimage
-sudo pmset -a standby 0
-sudo pmset -a autopoweroff 0
-sudo pmset -a powernap 0
-sudo pmset -a proximitywake 0
+sudo pmset autopoweroff 0
+sudo pmset powernap 0
+sudo pmset standby 0
+sudo pmset proximitywake 0
+sudo pmset tcpkeepalive 0
 
 defaultColor="\033[0m"
 red="\033[0;31m"
